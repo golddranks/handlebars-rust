@@ -19,10 +19,10 @@ path = "src/lib.rs"
 [dependencies]
 
 regex = "*"
-regex_macros = "*"
 log = "*"
 rustc-serialize = "*"
 num = "*"
+lazy_static = "0.1.*"
 
 [dev-dependencies]
 env_logger = "*"

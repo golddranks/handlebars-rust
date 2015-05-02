@@ -8,7 +8,14 @@ pub struct Context {
 }
 
 //pub static NULL_VALUE: &'static Json = &Json::Null;
-static ARRAY_INDEX_MATCHER: Regex = regex!(r"\[\d+\]$");
+
+// A hack using lazy_static! to allow the usage of regex! macro on Rust 1.0 stable.
+macro_rules! regex(
+    ($s:expr) => (Regex::new($s).unwrap());
+);
+lazy_static! {
+    static ref ARRAY_INDEX_MATCHER: Regex = regex!(r"\[\d+\]$");
+}
 
 #[inline]
 fn parse_json_visitor<'a>(path_stack: &mut VecDeque<&'a str>, path: &'a String) {

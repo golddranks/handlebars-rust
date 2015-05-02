@@ -1,7 +1,3 @@
-#![feature(plugin, collections)]
-
-#![plugin(regex_macros)]
-
 //! # Handlebars
 //! Handlebars is a modern and extensible templating solution originally created in the JavaScript world. It's used by many popular frameworks like [Ember.js](http://emberjs.com) and Chaplin. It's also ported to some other platforms such as [Java](https://github.com/jknack/handlebars.java).
 //!
@@ -167,6 +163,9 @@ extern crate log;
 extern crate rustc_serialize as serialize;
 extern crate regex;
 extern crate num;
+
+#[macro_use]
+extern crate lazy_static;
 
 pub use self::template::{Template, TemplateError, Helper};
 pub use self::registry::Registry as Handlebars;
